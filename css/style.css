@@ -1,0 +1,310 @@
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    ---gris: #757575; 
+    --grisclaro: #dfe9f3;
+}
+
+html {
+    font-size: 62.5%;/*Default medidas para poder usar rem*/
+    box-sizing: border-box; /*Hack para box model*/
+    scroll-snap-type: y proximity;
+}
+
+/*-----Box model-------------*/
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+/*--------------------------*/
+
+body {
+    font-size: 16%;/*Default medidas para poder usar rem*/
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisclaro) 0%, var(--blanco) 100%);
+}
+
+.contenedor{
+    max-width: 120rem;
+/*  se procede en ese orden va el margin solo 
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;*/
+
+    margin: 0 auto; /*css sabe que el primero es arriba y abajo y el segundo es derecha e izquierda cuando el valor es el mismo*/
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media(min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 15px 14px -3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 15px 14px -3px rgba(0,0,0,0.25);
+    box-shadow: 0px 15px 14px -3px rgba(0,0,0,0.25);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+h1{
+    font-size: 3.8rem; /*1rem = 10px */
+}
+
+h2{    
+    font-size: 2.8rem; /*1rem = 10px */
+}
+
+h3{
+    font-size: 1.8rem; /*1rem = 10px */
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+.titulo span {
+    font-size: 2rem;
+}
+
+/*UTILIDADES*/
+.w-sm-100 {
+    width: 100%;
+}
+
+@media(min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media(min-width: 480px) {/*PARA TELF*/
+    
+}
+@media(min-width: 768px) {/*PARA TABLETS*/
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media(min-width: 1140px) {/*PARA UNA LAPTOP O COMPU DE ESCRITORIO*/
+    
+}
+
+@media(min-width: 1400px) {/*PARA SMARTTV*/
+
+}
+
+.navegacion-principal a{
+    color: var(--blanco);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);/*ANTERIOR*/
+    background-color: rgb(0 0 0 / 50% );/*NUEVA SINTAXIS DE TRANSPARENCIA todavia no tan optimizado*/
+    height: 100%;
+    width: 100%;
+
+    /*aliniar verticalmente*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*--------------------*/
+}
+
+.contenido-hero p,
+.contenido-hero h2{
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+/*scroll snap*/
+.servicios,
+.navegacion-principal,
+.footer {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/*servicios*/
+@media(min-width: 768px) {
+    .servicios{
+        display: grid;
+         /*grid: 200px 800px / 300px 300px*//*este es la forma */
+         /*otras sintaxis
+         grid-template-columns: 1fr 1fr 1fr;
+         grid-template-columns: 300px 300px 300px;*/
+         grid-template-columns: repeat(3, 1fr); /*en caso que se repita la medida en todas las columnas*/
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;    
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*CONTACTO*/
+
+.formulario {
+    background-color: var(---gris);
+    width: min(60rem, 100%); /*Utiliza el valor más pequeño*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media(min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+        
+    }
+    
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo textarea {
+    height: 18rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+    font-size: 1.25rem;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.enviar .boton {
+    width: 100%;
+}
+
+/*footer*/
+
+.footer p {
+    text-align: center;
+}
